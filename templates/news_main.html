@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class="container-news">
+<iframe src="./news.html" frameborder="0" class="news-frame"></iframe>
+<div class="text">
+    <h1 class="cov-head">About the project.</h1>
+    <p> The abundance of electronic data presents a challenge for readers to sift through news articles and find
+      informative content. One solution to this problem is text summarization. Summaries concentrate on lengthy
+      documents by highlighting key features, enabling readers to understand the article without reading the
+      entire document. To achieve this goal, the project aims to build a deep learning model using LSTM and RNN
+      algorithms that can output one or two-sentence summaries for a given article with high accuracy.
+      <br> <br>
+
+      The project involves several steps. The required libraries are imported, and the news summary dataset is
+      preprocessed by removing rows with missing values, converting all columns to string data type, and creating
+      a new data frame with "text" and "summary" columns. Regular expressions are used to expand contractions in
+      the text, and remaining text is converted to lowercase. Data cleaning involves removing punctuations,
+      stop-words, hyphens, and unnecessary characters. Sostok and eostok tokens are used to identify the start and
+      end of text.
+      <br> <br>
+
+      The text and summary columns are then tokenized and padded to create input and target sequences for the
+      model. The encoder-decoder architecture with attention is used, and the model is trained with the Adam
+      optimizer and the sparse categorical cross-entropy loss function. The model is compiled and saved as a .h5
+      file. An inference model is defined to generate summaries for new input texts, and a decoder model generates
+      the output sequence using the attention mechanism. The accuracy and loss history of the model are plotted
+      using matplotlib.
+      <br> <br>
+
+      The project is deployed using Django, and the news summaries are displayed in a web application where users
+      can read summaries of articles. The project procures real-time articles from reputable news portals and
+      loads them onto a CSV file on the backend, along with accompanying images, headlines, dates, times, full
+      article text, and "Read More" URLs. The data are processed using a Bi-Directional LSTM text summarization
+      model and displayed to the user interface in the form of news summaries. The website has a frontend filter
+      component that allows users to select and read news exclusively from their preferred news portals, enabling
+      users to personalize their news feed according to their interests and preferences.
+
+</div></div>
+{% endblock %}

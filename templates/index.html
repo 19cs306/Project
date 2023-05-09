@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+  <title>{{ title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/b4a182c864.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo">
+        <a>My Projects</a>
+      </div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <a href="/"><li>Home</li></a>
+        <a href="/word_cl"><li>WordCloud</li></a>
+        <a href="/covid"><li>Covid App</li></a>
+        <a href="/news"><li>News</li></a>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <section>
+    {% block content %}
+    {% endblock %}
+      
+  </section>
+  <script src="{% static 'script.js' %}"></script>
+</body>

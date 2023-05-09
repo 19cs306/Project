@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <h1 class="cov-head">Enter A Choose to Predict</h1>
+  <form action="input" method="POST" class="cov-form">
+    {% csrf_token %}
+    <p>
+      <span>
+        <input type="number" name="DD" placeholder="DD" min="1" max="31" class="cov-dd">
+        <input type="number" name="MM" placeholder="MM" min="1" max="12" class="cov-mm">
+        <input type="number" name="YY" placeholder="YYYY" min="2020" max="2050" class="cov-yy">
+      </Span><br>
+
+      <span>
+        <input type="submit" class="submit">
+      </span>
+    </p>
+  </form>
+  <div class="cov-results">
+  <p> {{result}}</p>
+  </div>
+</div>
+<div class="text">
+  <h1 class="cov-head">About the project.</h1>
+  <p>The short-term COVID-19 prediction model project involves fetching and organizing the daily COVID-19 cases data
+    for India using the Pandas library. The project fetches the data from the CSSEGISandData repository and stores it
+    in a tidy format in a CSV file named "India.csv". The <code>loadData</code> function is used to convert the raw
+    data into a tidy format for confirmed cases, deaths, and recovered cases. The <code>refreshData</code> function
+    merges the three dataframes, keeps only the data for India, and adds a new column named "Day" representing the
+    number of days since the first case was reported in India.</p>
+  <p>The organized data can be used to develop a short-term prediction model using linear regression. By using the
+    "Day" column as the independent variable and the "CumConfirmed" column as the dependent variable, the model can
+    predict the number of COVID-19 cases for upcoming days. However, it's important to keep in mind that the
+    accuracy of the model may be impacted by changes in testing protocols, vaccination rates, and government
+    policies. Overall, this project offers a useful tool for analyzing COVID-19 cases data and developing predictive
+    models for India.</p>
+</div>
+  <div class="container-graph">
+  <iframe  style="border:none;" seamless="seamless" src="media/covid_data.html" ></iframe>
+  <iframe  style="border:none;" seamless="seamless" src="media/covid_model.html" ></iframe>
+</div>
+
+{% endblock %}
